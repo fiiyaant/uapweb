@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table uap web</title>
+ </head>
+ <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>TABEL WEB</title>
+        <style>
+          table {
+            border-collapse: collapse;
+            width: 300px;
+            margin-bottom: 20px;
+          }
+          th,
+          td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        <h2>uap web</h2>
+        <table>
+          <tr>
+            <th>Kode</th>
+            <th>Barang</th>
+            <th>Harga</th>
+          </tr>
+          <tr>
+            <td>001</td>
+            <td>Barang A</A></td>
+            <td>10.000</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>barang b</td>
+            <td>20.000</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>barang c</td>
+            <td>30.000</td>
+          </tr>
+        </table>
+      </body>
+      <h2>inputan user</h2>
+      <table>
+        <tr>
+          <td>masukan code:</td>
+          <td>
+            <input type="text" id="kode" />
+          </td>
+        </tr>
+        <tr>
+          <td>Banyaknya Barang</td>
+          <td>
+            <input type="number" id="jumlah" />
+          </td>
+        </tr>
+        <tr>
+          <td>Total Harga</td>
+          <td>
+            <p id="total"></p>
+          </td>
+        </tr>
+      </table>
+      <script>
+        document.getElementById("kode").addEventListener("change", function () {
+          let kode = this.value;
+          let jumlah = document.getElementById("jumlah").value;
+
+          if (kode === "001") {
+            let harga = 10000;
+            let total = harga * jumlah;
+            document.getElementById("total").textContent = total;
+          } else if (kode === "002") {
+            let harga = 20000;
+            let total = harga * jumlah;
+            document.getElementById("total").textContent = total;
+          } else if (kode === "003") {
+            let harga = 30000;
+            let total = harga * jumlah;
+            document.getElementById("total").textContent = total;
+          } else {
+            document.getElementById("total").textContent = "Kode tidak valid";
+          }
+        });
+
+        document.getElementById("jumlah").addEventListener("change", function () {
+          let kode = document.getElementById("kode").value;
+          let jumlah = this.value;
+          if (kode === "001") {
+        let harga = 10000;
+        let total = harga * jumlah;
+        document.getElementById("total").textContent = total;
+      } else if (kode === "002") {
+        let harga = 20000;
+        let total = harga * jumlah;
+        document.getElementById("total").textContent = total;
+      } else if (kode === "003") {
+        let harga = 30000;
+        let total = harga * jumlah;
+        document.getElementById("total").textContent = total;
+      } else {
+        document.getElementById("total").textContent = "Kode tidak valid";
+      }
+    });
+
+    document.getElementById("jumlah").addEventListener("change", function () {
+      let kode = document.getElementById("kode").value;
+      let jumlah = this.value;
+
+      if (kode === "001") {
+        let harga = 10000;
+        let total = harga * jumlah;
+        document.getElementById("total").textContent = total;
+      } else if (kode === "002") {
+        let harga = 20000;
+        let total = harga * jumlah;
+        document.getElementById("total").textContent = total;
+      } else if (kode === "003") {
+        let harga = 30000; 
+        let total = harga * jumlah; 
+        document.getElementById("total").textContent = total; 
+        } else { document.getElementById("total").textContent = "Kode tidak valid"; } }); 
+        </script> 
+
+        <form id="myForm">
+          <button type="submit">Submit</button>
+        </form>
+
+        <script>
+      document.getElementById("myForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let kode = document.getElementById("kode").value;
+    let jumlah = document.getElementById("jumlah").value;
+    let total = document.getElementById("total").textContent;
+
+    if (kode && jumlah && total) {
+       
+        let confirmation = confirm(
+            "Data berhasil disubmit. Kode: " +
+            kode +
+            ", Jumlah: " +
+            jumlah +
+            ", Total Harga: " +
+            total +
+            "\nApakah Anda ingin melakukan pembayaran?"
+        );
+
+        if (confirmation) {
+           
+            let paymentAmount = prompt("Masukkan jumlah yang akan dibayarkan:");
+    
+            if (paymentAmount !== null && !isNaN(paymentAmount) && parseFloat(paymentAmount) >= parseFloat(total)) {
+
+                alert("Proses pembayaran akan dimulai...");
+
+                setTimeout(function () {
+                    alert("Pembayaran berhasil!");
+                }, 2000); 
+            } else {
+                alert("Jumlah pembayaran tidak valid atau kurang dari total harga.");
+            }
+        } else {
+            alert("Pembayaran dibatalkan.");
+        }
+    } else {
+        window.alert("Data gagal disubmit. Mohon periksa inputan Anda.");
+    }
+});
+
+
+        </script>
+        </body>
